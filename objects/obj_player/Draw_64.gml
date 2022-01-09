@@ -1,0 +1,1 @@
+draw_text(8,8,"Load: L\nSave: S\nRandomize Position: Spacebar");
