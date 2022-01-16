@@ -27,7 +27,7 @@ if (keyboard_check_released(ord("L"))) && (file_exists("player.json")) {
 	var _struct = undefined;
 	buffer_delete(_buff);
 	try {
-		var _struct = json_parse(_json);
+		_struct = json_parse(_json);
 	} catch(_ex) {
 		show_debug_message(_ex.message);
 	}
