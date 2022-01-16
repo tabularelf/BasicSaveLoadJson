@@ -24,13 +24,17 @@ if (keyboard_check_released(ord("S"))) {
 if (keyboard_check_released(ord("L"))) && (file_exists("player.json")) { 
 	var _buff = buffer_load("player.json");
 	var _json = buffer_read(_buff, buffer_text);
+	var _struct = undefined;
 	buffer_delete(_buff);
 	try {
 		var _struct = json_parse(_json);
-		obj_player.x = !is_undefined(_struct[$ "x"]) ? _struct[$ "x"] : obj_player.x;
-		obj_player.y = !is_undefined(_struct[$ "y"]) ? _struct[$ "y"] : obj_player.y;
 	} catch(_ex) {
 		show_debug_message(_ex.message);
+	}
+	
+	if (is_struct(_struct)) {
+		obj_player.x = !is_undefined(_struct[$ "x"]) ? _struct[$ "x"] : obj_player.x;
+		obj_player.y = !is_undefined(_struct[$ "y"]) ? _struct[$ "y"] : obj_player.y;	
 	}
 }
 
